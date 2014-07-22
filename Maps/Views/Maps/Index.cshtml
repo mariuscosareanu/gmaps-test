@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Scripts{
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&libraries=places"></script>
+}
+
+<style type="text/css">
+    #map {
+        height: 368px;
+    }
+
+    .controls {
+        margin-bottom: 10px;
+    }
+</style>
+
+
+<div class="well">
+    <div class="controls">
+        <button type="button" class="btn btn-default js-getLocation">Get location</button>
+        <input type="text" id="pac-input" placeholder="Search" class="js-locationSearch" />
+        
+        <button type="button" class="btn btn-success js-saveLocation pull-right">Save location</button>
+    </div>
+    <div class="js-errorContainer">
+
+
+    </div>
+    <div id="map"></div>
+</div>
+
+
+
