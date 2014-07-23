@@ -1,0 +1,34 @@
+﻿@model StepsViewModel
+
+@using Maps.Models
+
+@{
+    ViewBag.Title = "RouteTest";
+}
+
+<style type="text/css">
+    .btn {
+        opacity: 0.7;
+    }
+
+    .selected {
+        opacity: 1;
+    }
+</style>
+
+
+<div class="controls">
+    <a href="@Url.Action("RouteTest", new {step = StepEnum.One.ToString()})" data-id="@((int)StepEnum.One)" class="js-step btn btn-default @(Model.SelectedStep == StepEnum.One ? "selected" : string.Empty)" >One</a>
+    <a href="@Url.Action("RouteTest", new {step =  StepEnum.Two.ToString()})" data-id="@((int)StepEnum.Two)" class="js-step btn btn-danger @(Model.SelectedStep == StepEnum.Two ? "selected" : string.Empty)">Two</a>
+    <a href="@Url.Action("RouteTest", new {step =  StepEnum.Three.ToString()})" data-id="@((int)StepEnum.Three)" class="js-step btn btn-info @(Model.SelectedStep == StepEnum.Three ? "selected" : string.Empty)">Three</a>
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Four.ToString() })" data-id="@((int)StepEnum.Four)" class="js-step btn btn-warning @(Model.SelectedStep == StepEnum.Four ? "selected" : string.Empty)">Four</a>
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Five.ToString(), substep = SubStepEnum.First.ToString() })" data-id="@((int)StepEnum.Five)" class="js-step js-withSubSteps btn btn-success @(Model.SelectedStep == StepEnum.Five ? "selected" : string.Empty)">Five</a>
+</div>
+
+
+<div class="controls substep_controls js-subStepControls" style="@(Model.SelectedStep == StepEnum.Five ? string.Empty : "display:none");margin-top:20px">
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Five.ToString(), substep= SubStepEnum.First.ToString() })" data-id="@((int)SubStepEnum.First)" class="js-subStep btn btn-default @(Model.SelectedSubStep == SubStepEnum.First ? "selected" : string.Empty)">First</a>
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Five.ToString(), substep= SubStepEnum.Second.ToString() })" data-id="@((int)SubStepEnum.Second)" class="js-subStep btn btn-danger @(Model.SelectedSubStep == SubStepEnum.Second ? "selected" : string.Empty)">Second</a>
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Five.ToString(), substep= SubStepEnum.Third.ToString() })" data-id="@((int)SubStepEnum.Third)" class="js-subStep btn btn-info @(Model.SelectedSubStep == SubStepEnum.Third ? "selected" : string.Empty)">Third</a>
+    <a href="@Url.Action("RouteTest", new { step = StepEnum.Five.ToString(), substep= SubStepEnum.Fourth.ToString() })" data-id="@((int)SubStepEnum.Fourth)" class="js-subStep btn btn-warning @(Model.SelectedSubStep == SubStepEnum.Fourth ? "selected" : string.Empty)">Fourth</a>
+</div>
