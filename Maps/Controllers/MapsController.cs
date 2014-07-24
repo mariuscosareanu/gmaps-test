@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Maps.Helpers;
 using Maps.Models;
 using RequireJS;
 
@@ -21,13 +22,13 @@ namespace Maps.Controllers
         [Route("Route/{step=One}/{substep?}")]
         public ActionResult RouteTest(string substep, string step)
         {
-            var viewModel = new StepsViewModel {SelectedStep = (StepEnum) Enum.Parse(typeof (StepEnum), step)};
+            var viewModel = new StepsViewModel {SelectedStep = (StepEnum) Enum.Parse(typeof (StepEnum), step.ToUpperFirstLetter())};
 
             if (viewModel.SelectedStep == StepEnum.Five)
             {
                 if (!string.IsNullOrEmpty(substep))
                 {
-                    viewModel.SelectedSubStep = (SubStepEnum)Enum.Parse(typeof(SubStepEnum), substep);
+                    viewModel.SelectedSubStep = (SubStepEnum)Enum.Parse(typeof(SubStepEnum), substep.ToUpperFirstLetter());
                 }
                 else
                 {

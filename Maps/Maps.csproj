@@ -197,6 +197,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\StepModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -408,6 +409,7 @@
     <Content Include="Scripts\BForms\Widgets\Utils\bforms.themeSelect.js" />
     <Content Include="Scripts\Components\gmaps.js" />
     <Content Include="Scripts\Controllers\Root\Maps\index.js" />
+    <Content Include="Scripts\Controllers\Root\Maps\routetest.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
